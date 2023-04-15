@@ -41,7 +41,7 @@ section {
   padding: 50px 0px 24px 70px;
 }
 
-section > header {
+h2 {
   font-size: 24px;
   font-weight: bold;
 }
