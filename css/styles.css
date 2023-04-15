@@ -32,3 +32,49 @@ a[href="about.html"] {
   border: 1px;
   border-style: solid;
 }
+
+article > section {
+  padding: 50px 0px 24px 70px;
+}
+
+article > section > header {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.posted {
+  padding-top: 16px;
+  padding-bottom: 32px;
+  font-size: 12px;
+  color: darkgray;
+}
+
+.posted__date {
+  color: dodgerblue;
+  font-weight: bold;
+}
+
+img {
+  width: 460px;
+  height: 320px;
+}
+
+.info, .description, article>section>footer {
+  padding-top: 24px;
+  font-size: 14px;
+}
+
+article>section>footer {
+  font-size: 12px;
+}
+
+.author {
+  color: dodgerblue;
+  font-weight: bold;
+}
+
+hr {
+  border-top: 1px solid #000;
+  margin-left: 70px;
+  margin-right: 70px;
+}
