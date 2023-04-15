@@ -1,7 +1,10 @@
 h1 {
   font-size: 32px;
-  padding: 60px 0px 60px 80px;
   font-weight: bold;
+}
+
+.title {
+  padding: 60px 0px 60px 80px;
 }
 
 .subtitle {
@@ -34,11 +37,11 @@ a[href="about.html"] {
   border-style: solid;
 }
 
-article > section {
+section {
   padding: 50px 0px 24px 70px;
 }
 
-article > section > header {
+section > header {
   font-size: 24px;
   font-weight: bold;
 }
@@ -60,13 +63,13 @@ img {
   height: 320px;
 }
 
-.info, .description, article>section>footer {
+.info, .description, section > footer {
   padding-top: 24px;
   font-size: 14px;
   color: gray;
 }
 
-article>section>footer {
+section > footer {
   font-size: 12px;
 }
 
