@@ -6,12 +6,13 @@ h1 {
 
 .subtitle {
   font-size: 14px;
-  color: darkgray;
+  color: gray;
   font-weight: lighter;
 }
 
 nav {
   background-color: black;
+  box-shadow: 0px 2px 5px gray;
   color: white;
   padding: 14px 0px 14px 80px;
 }
@@ -46,7 +47,7 @@ article > section > header {
   padding-top: 16px;
   padding-bottom: 32px;
   font-size: 12px;
-  color: darkgray;
+  color: gray;
 }
 
 .posted__date {
@@ -62,6 +63,7 @@ img {
 .info, .description, article>section>footer {
   padding-top: 24px;
   font-size: 14px;
+  color: gray;
 }
 
 article>section>footer {
@@ -74,7 +76,17 @@ article>section>footer {
 }
 
 hr {
-  border-top: 1px solid #000;
+  border-top: 1px solid darkgray;
   margin-left: 70px;
   margin-right: 70px;
+}
+
+body > footer {
+  padding-top: 32px;
+  padding-left: 70px;
+  text-align: center;
+  height: 80px;
+  font-size: 12px;
+  background-color:rgb(240, 240, 240);
+  border-top: 1px solid darkgray;
 }
