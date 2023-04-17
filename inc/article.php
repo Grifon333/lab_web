@@ -6,7 +6,7 @@ $url = "article.php?id=" . $article["id"];
 <section>
   <header>
     <a href=<?= $url ?>>
-      <<?= $tag ?>><?= $article["title"]; ?></<?= $tag ?>>
+      <<?= $tag ?> class="title_article"><?= $article["title"]; ?></<?= $tag ?>>
     </a>
   </header>
   <div class="posted">

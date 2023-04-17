@@ -4,7 +4,7 @@ $tag = $currentPage === "Home" ? "h1" : "div";
 
 <header>
   <div class="title">
-    <<?=$tag?>>
+    <<?=$tag?> class="name">
       Blog
     </<?=$tag?>>
     <div class="subtitle">
