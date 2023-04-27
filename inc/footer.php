@@ -1,4 +1,4 @@
-<footer class="page-footer">
+<footer class="blog-footer">
 	©
-	<?= date('Y') ?> by Korol Danylo
+	<?= date('Y') ?> by Korol` Danylo
 </footer>

@@ -16,7 +16,7 @@ function getArticles(): array
       "date" => "2023-05-06",
       "title" => "5 Ways to Make Sure You Achieve Your Goals This Year",
       "img" => "House.webp",
-      "info" => "What separates people who achieve their goals from those who don\'t?",
+      "info" => "What separates people who achieve their goals from those who don't?",
       "description" => "Connect every goal to a “why”.\nStart small and start now.\nBreak your goals down.\nRemove obstacles before you begin.\nCelebrate your wins.",
       "author" => "Allison",
     ],

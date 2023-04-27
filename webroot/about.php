@@ -12,7 +12,7 @@ $currentPage = "About";
     <?php require("../inc/header.php"); ?>
 
     <main>
-        <section>
+        <article class="about-article">
             <header>
                 <h2 class="title_about">About</h2>
             </header>
@@ -21,7 +21,7 @@ $currentPage = "About";
                 <p>Line2</p>
                 <p>Line3</p>
             </div>
-        </section>
+        </article>
     </main>
 
     <?php require("../inc/footer.php"); ?>

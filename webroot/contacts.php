@@ -12,7 +12,7 @@ $currentPage = "Contacts";
     <?php require("../inc/header.php"); ?>
 
     <main>
-        <section>
+        <article class="contacts-article">
             <header>
                 <h2 class="title_contacts">Contacts</h2>
             </header>
@@ -21,7 +21,7 @@ $currentPage = "Contacts";
                 <p>Phone #2</p>
                 <p>Phone #3</p>
             </div>
-        </section>
+        </article>
     </main>
 
     <?php require("../inc/footer.php"); ?>

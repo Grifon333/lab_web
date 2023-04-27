@@ -3,7 +3,7 @@ $tag = "Home" === $currentPage ? "h2" : "h1";
 $url = "article.php?id=" . $article["id"];
 ?>
 
-<section>
+<article class="blog-article">
   <header>
     <a href=<?= $url ?>>
       <<?= $tag ?> class="title_article"><?= $article["title"]; ?></<?= $tag ?>>
@@ -14,7 +14,7 @@ $url = "article.php?id=" . $article["id"];
       <?= $date = DateTime::createFromFormat("Y-m-d", $article["date"])->format("F j, Y") ?>
     </span>
   </div>
-  <img src="assets/<?= $article["img"] ?>" alt="Boat">
+  <img src="../assets/<?= $article["img"] ?>" alt="Boat">
   <div class="info">
     <?= $article["info"]; ?>
   </div>
@@ -26,5 +26,5 @@ $url = "article.php?id=" . $article["id"];
       <?= $article["author"] ?>
     </span>
   </footer>
-</section>
-<hr>
+</article>
+<!-- <hr> -->
