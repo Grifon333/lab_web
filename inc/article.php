@@ -6,7 +6,7 @@ $url = "article.php?id=" . $article["id"];
 <article class="blog-article">
   <header>
     <a href=<?= $url ?>>
-      <<?= $tag ?> class="title_article"><?= $article["title"]; ?></<?= $tag ?>>
+      <<?= $tag ?> class="title-article"><?= $article["title"]; ?></<?= $tag ?>>
     </a>
   </header>
   <div class="posted">
@@ -27,4 +27,3 @@ $url = "article.php?id=" . $article["id"];
     </span>
   </footer>
 </article>
-<!-- <hr> -->

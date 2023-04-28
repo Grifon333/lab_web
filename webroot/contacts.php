@@ -14,7 +14,7 @@ $currentPage = "Contacts";
     <main>
         <article class="contacts-article">
             <header>
-                <h2 class="title_contacts">Contacts</h2>
+                <h2>Contacts</h2>
             </header>
             <div>
                 <p>Phone #1</p>

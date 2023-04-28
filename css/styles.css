@@ -63,7 +63,9 @@ main {
   margin-bottom: 24px;
 }
 
-.title_article, .title_about, .title_contacts {
+.title-article, 
+.about-article header h2,
+.contacts-article header h2 {
   font-size: 24px;
   font-weight: bold;
   padding-bottom: 16px;
@@ -78,6 +80,11 @@ main {
 .blog-article .posted__date {
   color: dodgerblue;
   font-weight: bold;
+}
+
+.blog-article img {
+  width: 460px;
+  height: 320px;
 }
 
 .blog-article .info, 
@@ -117,24 +124,20 @@ main {
   }
 
   .title {
-    padding: 40px 0px 40px 50px;
+    padding: 40px 0px;
   }
 
   .subtitle {
     font-size: 12px;
   }
 
-  nav {
-    padding: 12px 0px 12px 50px;
+  .blog-header nav {
+    padding: 12px 0px;
   }
 
-  a {
+  .blog-header a {
     font-size: 12px;
     padding: 12px;
-  }
-
-  section {
-    padding: 30px 40px 24px 40px;
   }
 
   .title_article, .title_about, .title_contacts {
@@ -142,32 +145,23 @@ main {
     padding-bottom: 14px;
   }
 
-  .posted {
-    /* padding-top: 14px; */
+  .blog-article .posted {
     padding-bottom: 26px;
     font-size: 10px;
   }
   
-  img {
-    width: 320px;
-    height: 220px;
-  }
-  
-  .info, .description, section > footer {
+  .blog-article .info, 
+  .blog-article .description, 
+  .blog-article footer {
     padding-top: 20px;
     font-size: 12px;
   }
   
-  section > footer {
+  .blog-article footer {
     font-size: 10px;
   }
   
-  hr {
-    margin-left: 40px;
-    margin-right: 40px;
-  }
-  
-  body > footer {
+  .blog-footer {
     padding-top: 20px;
     padding-left: 40px;
     height: 50px;

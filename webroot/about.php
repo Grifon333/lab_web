@@ -14,7 +14,7 @@ $currentPage = "About";
     <main>
         <article class="about-article">
             <header>
-                <h2 class="title_about">About</h2>
+                <h2>About</h2>
             </header>
             <div>
                 <p>Line1</p>

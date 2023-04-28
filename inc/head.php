@@ -3,6 +3,6 @@
   <title>
     Blog - <?= $pageTitle ?>
   </title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
