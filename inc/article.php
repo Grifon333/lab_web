@@ -1,6 +1,6 @@
 <?php
 $tag = "Home" === $currentPage ? "h2" : "h1";
-$url = "article.php?id=" . $article["id"];
+$url = "article.php?id=" . $article['id'];
 ?>
 
 <article class="blog-article">
