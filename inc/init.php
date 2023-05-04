@@ -2,22 +2,32 @@
 require_once('../inc/functions.php');
 $pdo = getConnection();
 
-$tableExists = $pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='articles'");
-if (!$tableExists->fetchColumn()) {
-  $query = 'CREATE TABLE articles (
-    id INTEGER NOT NULL PRIMARY KEY,
-    date TEXT NOT NULL,
-    title TEXT NOT NULL,
-    img TEXT NOT NULL,
-    info TEXT NOT NULL,
-    description TEXT NOT NULL,
-    author TEXT NOT NULL
-    )';
-  $pdo->exec($query);
+$tableExists = $pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='articles'")->fetchColumn();
 
+$query =
+  'CREATE TABLE IF NOT EXISTS articles (
+      id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+      date TEXT NOT NULL,
+      title TEXT NOT NULL,
+      img TEXT NOT NULL,
+      info TEXT NOT NULL,
+      description TEXT NOT NULL,
+      author TEXT NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS comments (
+      id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+      article_id INTEGER NOT NULL REFERENCES articles(id),
+      author TEXT NOT NULL,
+      rate TEXT NOT NULL,
+      content TEXT NOT NULL,
+      created TEXT NOT NULL
+    )
+    ';
+$pdo->exec($query);
+
+if (!$tableExists) {
   $articles = [
     [
-      // 'id' => 1,
       'date' => '2023-04-05',
       'title' => 'Learn Any Programming Language with This Learning Plan',
       'img' => 'Work.png',
@@ -26,7 +36,6 @@ if (!$tableExists->fetchColumn()) {
       'author' => 'John',
     ],
     [
-      // 'id' => 2,
       'date' => '2023-05-06',
       'title' => '5 Ways to Make Sure You Achieve Your Goals This Year',
       'img' => 'House.webp',
