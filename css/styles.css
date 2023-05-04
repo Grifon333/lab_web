@@ -118,6 +118,25 @@ main {
   margin-bottom: 24px;
 }
 
+.comments-form form {
+  margin: 32px 0px;
+  font-size: 16px;
+  color: gray;
+}
+
+.comments-form form input, .comments-form form select, .comments-form form textarea {
+  margin: 10px 0px;
+  display: block;
+}
+
+.comments-form form input, .comments-form form textarea {
+  border: 1px solid silver;
+  border-radius: 2px;
+  padding: 4px;
+  color: gray;
+  resize: none;
+}
+
 @media (max-width: 768px) {
   .name {
     font-size: 28px;

@@ -27,3 +27,7 @@ $url = "article.php?id=" . $article['id'];
     </span>
   </footer>
 </article>
+
+<?php if ($currentPage === 'Article') {
+  require '../inc/comments.php';
+} ?>
