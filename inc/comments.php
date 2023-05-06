@@ -1,15 +1,26 @@
 <div class="comments-form">
-  <form action="" method="post">
+  <form method="post">
     Comments<br>
-    <input type="hidden" name="" id="">
-    <input type="text" name="" placeholder="name">
-    <select name="rating" id="article-rating">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <textarea name="comment-body" id="article-comment" cols="30" rows="10" placeholder="Body"></textarea>
+    <input type="hidden" name="action" value="new-comment">
+    <div class="input">
+      <label for="author">Author</label><br>
+      <input type="text" name="" id="author" placeholder="Name"
+        value="<?= htmlspecialchars($_POST['author'] ?? ''); ?>">
+    </div>
+    <div class="input">
+      <label for="rate">Rate</label><br>
+      <select name="rate" id="article-rating">
+        <option value="0">--no select--</option>
+        <?php for($i = 1; $i <= 5; $i++) { ?>
+          <option value="<?= $i ?>">Rate <?= $i ?></option>
+          <?php } ?>
+      </select>
+    </div>
+    <div class="input">
+      <label for="content">Comment</label><br>
+      <textarea name="comment-body" id="content" cols="30" rows="10" placeholder="Body"
+        value="<?= htmlspecialchars($_POST['content'] ?? ''); ?>"></textarea>
+    </div>
+    <input type="submit" value="Add comment">
   </form>
 </div>

@@ -124,17 +124,25 @@ main {
   color: gray;
 }
 
-.comments-form form input, .comments-form form select, .comments-form form textarea {
+.comments-form .input {
   margin: 10px 0px;
   display: block;
+  font-size: 14px;
 }
 
-.comments-form form input, .comments-form form textarea {
+.comments-form #author, .comments-form #content{
   border: 1px solid silver;
   border-radius: 2px;
   padding: 4px;
   color: gray;
   resize: none;
+}
+
+.comments-form input[type="submit"] {
+  background-color: yellowgreen;
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 2px;
 }
 
 @media (max-width: 768px) {

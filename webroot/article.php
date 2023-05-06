@@ -1,7 +1,7 @@
 <?php
 $currentPage = "Article";
 require_once("../inc/functions.php");
-$articleId = $_GET["id"] ?? null;
+$articleId = $_GET['id'] ?? null;
 if ($articleId === null) {
     http_response_code(404);
     exit();
