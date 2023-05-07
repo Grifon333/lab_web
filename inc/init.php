@@ -21,8 +21,7 @@ $query =
       rate TEXT NOT NULL,
       content TEXT NOT NULL,
       created TEXT NOT NULL
-    )
-    ';
+    )';
 $pdo->exec($query);
 
 if (!$tableExists) {
