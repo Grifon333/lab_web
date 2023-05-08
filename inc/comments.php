@@ -1,5 +1,6 @@
 <?php
 
+$isAjax = 'xmlhttprequest' === strtolower($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '');
 $comments = getComments($articleId);
 $errors = [];
 $action = $_POST['action'] ?? null;
