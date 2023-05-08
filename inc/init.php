@@ -13,8 +13,10 @@ $query =
       info TEXT NOT NULL,
       description TEXT NOT NULL,
       author TEXT NOT NULL
-    );
-    CREATE TABLE IF NOT EXISTS comments (
+    )';
+$pdo->exec($query);
+$query =
+  'CREATE TABLE IF NOT EXISTS comments (
       id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
       article_id INTEGER NOT NULL REFERENCES articles(id),
       author TEXT NOT NULL,

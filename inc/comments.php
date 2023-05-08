@@ -85,6 +85,9 @@ if ($action === 'new-comment') {
 </div>
 
 <?php if (count($comments) != 0) { ?>
+  <div class='count-comments'>This article have
+    <?= count($comments) ?> comments
+  </div>
   <div class="comments-list">Comments</div>
   <?php foreach ($comments as $comment) { ?>
     <div class="comment">
@@ -97,6 +100,9 @@ if ($action === 'new-comment') {
       </div>
       <div class='content'>
         <?= nl2br(htmlspecialchars($comment['content'])) ?>
+      </div>
+      <div class='created'>
+        <?= htmlspecialchars($comment['created']) ?>
       </div>
     </div>
   <?php } ?>
