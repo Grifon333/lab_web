@@ -1,7 +1,7 @@
 <?php
 $tag = 'Home' === $currentPage ? 'h2' : 'h1';
 $url = 'article.php?id=' . $article['id'];
-$rate = $article['avg_rate'] ?? 0;
+$rate = round(($article['avg_rate'] ?? 0) * 10) / 10;
 $rate_by_star = str_repeat('&#9733', (int) ($rate)) . str_repeat('&#9734', 5 - (int) ($rate));
 ?>
 
