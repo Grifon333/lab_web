@@ -1,4 +1,7 @@
 <?php
+/**
+ * @var int $articleId
+ */
 
 $comments = getComments($articleId);
 $errors = [];
