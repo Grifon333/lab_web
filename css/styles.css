@@ -99,7 +99,7 @@ main {
   font-size: 12px;
 }
 
-.author {
+.blog-article .author {
   color: dodgerblue;
   font-weight: bold;
 }
@@ -122,6 +122,8 @@ main {
   margin: 32px 0px;
   font-size: 16px;
   color: gray;
+  padding-bottom: 24px;
+  border-bottom: 1px solid silver;
 }
 
 .comments-form .input {
@@ -139,10 +141,35 @@ main {
 }
 
 .comments-form input[type="submit"] {
-  background-color: yellowgreen;
+  background-color: rgb(137, 254, 137);
   padding: 4px;
   border: 1px solid black;
   border-radius: 2px;
+}
+
+.comments-list {
+  color: black;
+  font-weight: bold;
+}
+
+.comment {
+  border: 1px solid silver;
+  padding: 4px;
+  border-radius: 2px;
+  margin: 8px 0px;
+  width: 400px;
+}
+
+.comment .author {
+  font-weight: bold;
+}
+
+.empty-comments-list {
+  font-size: 32px;
+  text-align: center;
+  padding: 32px 0px;
+  color: rgb(213, 213, 213);
+  font-style: italic;
 }
 
 @media (max-width: 768px) {

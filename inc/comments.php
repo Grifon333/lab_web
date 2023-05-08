@@ -59,7 +59,9 @@ if ($action === 'new-comment') {
       <select name="rate" id="rate">
         <option value="0">--no select--</option>
         <?php for ($i = 1; $i <= 5; $i++) { ?>
-          <option value="<?= $i ?>">Rate <?= $i ?></option>
+          <option value="<?= $i ?>">
+            <?= str_repeat('&#9733', $i) . str_repeat('&#9734', 5 - $i); ?>
+          </option>
         <?php } ?>
       </select>
       <?php if (array_key_exists('rate', $errors)) { ?>
@@ -81,3 +83,25 @@ if ($action === 'new-comment') {
     <input type="submit" value="Add comment">
   </form>
 </div>
+
+<?php if (count($comments) != 0) { ?>
+  <div class="comments-list">Comments</div>
+  <?php foreach ($comments as $comment) { ?>
+    <div class="comment">
+      <div class='author'>
+        <?= htmlspecialchars($comment['author']) ?>
+      </div>
+      <div class='rate'>
+        <?= str_repeat('&#9733', htmlspecialchars($comment['rate']))
+          . str_repeat('&#9734', 5 - htmlspecialchars($comment['rate'])) ?>
+      </div>
+      <div class='content'>
+        <?= nl2br(htmlspecialchars($comment['content'])) ?>
+      </div>
+    </div>
+  <?php } ?>
+<?php } else { ?>
+  <div class="empty-comments-list">
+    No comments
+  </div>
+<?php } ?>
