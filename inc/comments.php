@@ -2,45 +2,6 @@
 /**
  * @var int $articleId
  */
-
-$comments = getComments($articleId);
-$errors = [];
-$action = $_POST['action'] ?? null;
-if ($action === 'new-comment') {
-  $author = trim((string) ($_POST['author'] ?? null));
-  if ($author === '') {
-    $errors['author'] = 'This field is can not be empty';
-  } elseif (mb_strlen($author) > 50) {
-    $errors['author'] = 'Length can not be more than 50 characters';
-  }
-  $rate = (int) ($_POST['rate'] ?? null);
-  if ($rate < 1 || $rate > 5) {
-    $errors['rate'] = 'Invalid rate';
-  }
-  $content = trim((string) ($_POST['content'] ?? null));
-  if ($content === '') {
-    $errors['content'] = 'This field is can not be empty';
-  } elseif (mb_strlen($content) > 200) {
-    $errors['content'] = 'Length can not be more than 200 characters';
-  }
-
-  if (count($errors) === 0) {
-    $pdo = getConnection();
-    $sql =
-      'INSERT INTO comments (article_id, rate, content, author, created)
-      VALUES (:articleId, :rate, :content, :author, :created)';
-    $statement = $pdo->prepare($sql);
-    $data = ['articleId' => $articleId, 'rate' => $rate, 'content' => $content, 'author' => $author];
-    $data['created'] = date('Y-m-d H:i:s');
-    $result = $statement->execute($data);
-    if (false === $result) {
-      http_response_code(500);
-      exit();
-    }
-    header("Location: article.php?id={$articleId}");
-    exit();
-  }
-}
 ?>
 
 <div class="comments-form">
@@ -87,7 +48,7 @@ if ($action === 'new-comment') {
   </form>
 </div>
 
-<?php if (count($comments) != 0) { ?>
+<?php if (count($comments) > 0) { ?>
   <div class='count-comments'>This article has
     <?= count($comments) ?> comments
   </div>
@@ -98,14 +59,14 @@ if ($action === 'new-comment') {
         <?= htmlspecialchars($comment['author']) ?>
       </div>
       <div class='rate'>
-        <?= str_repeat('&#9733', htmlspecialchars($comment['rate']))
-          . str_repeat('&#9734', 5 - htmlspecialchars($comment['rate'])) ?>
+        <?= str_repeat('&#9733', $comment['rate'])
+          . str_repeat('&#9734', 5 - $comment['rate']) ?>
       </div>
       <div class='content'>
         <?= nl2br(htmlspecialchars($comment['content'])) ?>
       </div>
       <div class='created'>
-        <?= htmlspecialchars($comment['created']) ?>
+        <?= $comment['created'] ?>
       </div>
     </div>
   <?php } ?>

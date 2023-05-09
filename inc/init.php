@@ -20,7 +20,7 @@ $query =
       id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
       article_id INTEGER NOT NULL REFERENCES articles(id),
       author TEXT NOT NULL,
-      rate TEXT NOT NULL,
+      rate INTEGER NOT NULL,
       content TEXT NOT NULL,
       created TEXT NOT NULL
     )';
