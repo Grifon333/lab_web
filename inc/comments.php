@@ -37,7 +37,7 @@ if ($action === 'new-comment') {
       http_response_code(500);
       exit();
     }
-    header("Location: ../webroot/article.php?id={$articleId}");
+    header("Location: article.php?id={$articleId}");
     exit();
   }
 }
@@ -88,7 +88,7 @@ if ($action === 'new-comment') {
 </div>
 
 <?php if (count($comments) != 0) { ?>
-  <div class='count-comments'>This article have
+  <div class='count-comments'>This article has
     <?= count($comments) ?> comments
   </div>
   <div class="comments-list">Comments</div>

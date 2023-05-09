@@ -26,7 +26,7 @@ function getArticle(int $articleId): ?array
 {
   $pdo = getConnection();
   $sql =
-    'SELECT articles.*, AVG(comments.rate) avg_rate 
+    'SELECT articles.*, AVG(comments.rate) avg_rate, COUNT(comments.id) comments_count 
     FROM articles LEFT JOIN comments ON articles.id = comments.article_id
     WHERE articles.id=:id
     GROUP BY articles.id';

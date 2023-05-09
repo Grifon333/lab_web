@@ -3,6 +3,7 @@ $tag = 'Home' === $currentPage ? 'h2' : 'h1';
 $url = 'article.php?id=' . $article['id'];
 $rate = round(($article['avg_rate'] ?? 0) * 10) / 10;
 $rate_by_star = str_repeat('&#9733', (int) ($rate)) . str_repeat('&#9734', 5 - (int) ($rate));
+$comments_count = $article['comments_count'] ?? 0;
 ?>
 
 <article class='blog-article'>
@@ -20,6 +21,9 @@ $rate_by_star = str_repeat('&#9733', (int) ($rate)) . str_repeat('&#9734', 5 - (
     Rate
     <?= $rate ?>
     <?= $rate_by_star ?>
+  </div>
+  <div class='comments-count'>
+    This article has <?= $comments_count ?> comments
   </div>
   <img src='../assets/<?= $article['img'] ?>' alt=<?= $article['img'] ?>>
   <div class='info'>
