@@ -23,7 +23,8 @@ $comments_count = $article['comments_count'] ?? 0;
     <?= $rate_by_star ?>
   </div>
   <div class='comments-count'>
-    This article has <?= $comments_count ?> comments
+    This article has
+    <?= $comments_count ?> comments
   </div>
   <img src='../assets/<?= $article['img'] ?>' alt=<?= $article['img'] ?>>
   <div class='info'>
@@ -38,7 +39,3 @@ $comments_count = $article['comments_count'] ?? 0;
     </span>
   </footer>
 </article>
-
-<?php if ($currentPage === 'Article') {
-  require '../inc/comments.php';
-} ?>

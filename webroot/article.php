@@ -13,21 +13,22 @@ if ($articleId === null) {
     exit();
 }
 $pageTitle = $article["title"];
+$response = $_POST;
 
 $errors = [];
-$action = $_POST['action'] ?? null;
+$action = $response['action'] ?? null;
 if ($action === 'new-comment') {
-    $author = trim((string) ($_POST['author'] ?? null));
+    $author = trim((string) ($response['author'] ?? null));
     if ($author === '') {
         $errors['author'] = 'This field is can not be empty';
     } elseif (mb_strlen($author) > 50) {
         $errors['author'] = 'Length can not be more than 50 characters';
     }
-    $rate = (int) ($_POST['rate'] ?? null);
+    $rate = (int) ($response['rate'] ?? null);
     if ($rate < 1 || $rate > 5) {
         $errors['rate'] = 'Invalid rate';
     }
-    $content = trim((string) ($_POST['content'] ?? null));
+    $content = trim((string) ($response['content'] ?? null));
     if ($content === '') {
         $errors['content'] = 'This field is can not be empty';
     } elseif (mb_strlen($content) > 200) {
@@ -36,8 +37,9 @@ if ($action === 'new-comment') {
 
     if (count($errors) === 0) {
         $pdo = getConnection();
-        $sql =
-            'INSERT INTO comments (article_id, rate, content, author, created) VALUES (:articleId, :rate, :content, :author, :created)';
+        $query =
+            'INSERT INTO comments (article_id, rate, content, author, created) 
+            VALUES (:articleId, :rate, :content, :author, :created)';
         $statement = $pdo->prepare($sql);
         $data = ['articleId' => $articleId, 'rate' => $rate, 'content' => $content, 'author' => $author];
         $data['created'] = date('Y-m-d H:i:s');
@@ -62,7 +64,8 @@ $comments = getComments($articleId);
     <?php require("../inc/header.php"); ?>
 
     <main>
-        <?php require("../inc/article.php"); ?>
+        <?php require '../inc/article.php'; ?>
+        <?php require '../inc/comments.php'; ?>
     </main>
 
     <?php require("../inc/footer.php"); ?>

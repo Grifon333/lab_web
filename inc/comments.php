@@ -1,9 +1,3 @@
-<?php
-/**
- * @var int $articleId
- */
-?>
-
 <div class="comments-form">
   <form method="post">
     Comments<br>
@@ -11,7 +5,7 @@
     <div class="input">
       <label for="author">Author</label><br>
       <input type="text" name="author" id="author" placeholder="Name"
-        value="<?= htmlspecialchars($_POST['author'] ?? ''); ?>">
+        value="<?= htmlspecialchars($response['author'] ?? ''); ?>">
       <?php if (array_key_exists('author', $errors)) { ?>
         <div class='error'>
           <?= $errors['author']; ?>
@@ -21,9 +15,10 @@
     <div class="input">
       <label for="rate">Rate</label><br>
       <select name="rate" id="rate">
+        <?php $selected_rate = (int) ($response['rate']); ?>
         <option value="0">--no select--</option>
         <?php for ($i = 1; $i <= 5; $i++) { ?>
-          <option value="<?= $i ?>">
+          <option value="<?= $i ?>" <?= $selected_rate === $i ? 'selected' : '' ?>>
             <?= str_repeat('&#9733', $i) . str_repeat('&#9734', 5 - $i); ?>
           </option>
         <?php } ?>
@@ -37,7 +32,7 @@
     <div class="input">
       <label for="content">Comment</label><br>
       <textarea name="content" id="content" cols="30" rows="10" placeholder="Comment"
-        value="<?= htmlspecialchars($_POST['content'] ?? ''); ?>"></textarea>
+        value="<?= htmlspecialchars($response['content'] ?? ''); ?>"></textarea>
       <?php if (array_key_exists('content', $errors)) { ?>
         <div class='error'>
           <?= $errors['content']; ?>
