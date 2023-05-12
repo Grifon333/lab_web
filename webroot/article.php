@@ -14,9 +14,10 @@ if ($articleId === null) {
 }
 $pageTitle = $article["title"];
 $response = $_POST;
-
+$isAjax = 'xmlhttprequest' === strtolower($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '');
 $errors = [];
 $action = $response['action'] ?? null;
+
 if ($action === 'new-comment') {
     $author = trim((string) ($response['author'] ?? null));
     if ($author === '') {
@@ -40,7 +41,7 @@ if ($action === 'new-comment') {
         $query =
             'INSERT INTO comments (article_id, rate, content, author, created) 
             VALUES (:articleId, :rate, :content, :author, :created)';
-        $statement = $pdo->prepare($sql);
+        $statement = $pdo->prepare($query);
         $data = ['articleId' => $articleId, 'rate' => $rate, 'content' => $content, 'author' => $author];
         $data['created'] = date('Y-m-d H:i:s');
         $result = $statement->execute($data);
@@ -48,7 +49,16 @@ if ($action === 'new-comment') {
             http_response_code(500);
             exit();
         }
-        header("Location: article.php?id={$articleId}");
+        $redirect_url = "article.php?id={$articleId}";
+        if (!$isAjax) {
+            header("Location: " . $redirect_url);
+        } else {
+            echo $redirect_url;
+        }
+        exit();
+    }
+    if ($isAjax) {
+        require '../inc/comments.php';
         exit();
     }
 }
@@ -65,10 +75,34 @@ $comments = getComments($articleId);
 
     <main>
         <?php require '../inc/article.php'; ?>
-        <?php require '../inc/comments.php'; ?>
+        <div class="comments-form">
+            <?php require '../inc/comments.php'; ?>
+        </div>
     </main>
 
     <?php require("../inc/footer.php"); ?>
+
+    <script>
+        (function () {
+            var form = jQuery('#comment-form');
+            form.on('submit', function (event) {
+                var url = form.attr('action');
+                var data = form.serialize();
+                jQuery.post(url, data, function (response) {
+                    console.log(response);
+                    if (!response.includes('<')) {
+                        window.location = response;
+                        return;
+                    }
+                    var new_form = jQuery(response).filter('form');
+                    if (new_form.length > 0) {
+                        form.empty().append(new_form.children());
+                    }
+                });
+                return false;
+            });
+        })();
+    </script>
 </body>
 
 </html>
